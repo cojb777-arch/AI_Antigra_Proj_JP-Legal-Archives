@@ -1,0 +1,336 @@
+/* =========================================================
+   🏛️ THE LEGAL ARCHIVES - MAIN LAYOUT & HEADER
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-serif-jp);
+  background-color: var(--bg-parchment);
+  color: var(--text-ink-body);
+  line-height: 1.7;
+  font-size: 15px;
+  min-height: 100vh;
+  position: relative;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.4) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(214, 204, 168, 0.2) 0%, rgba(234, 226, 203, 0.4) 100%);
+  background-attachment: fixed;
+}
+
+/* ドーム天窓の柔らかい光の陰影 */
+.dome-light-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 240px;
+  background: radial-gradient(ellipse at 50% -20%, rgba(197, 160, 89, 0.18) 0%, rgba(244, 239, 224, 0) 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.archives-app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================================
+   🏛️ GRAND HEADER (大英博物館ファサード)
+   ========================================================= */
+.grand-header {
+  margin-top: 16px;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  background: linear-gradient(135deg, var(--color-oxford-dark) 0%, var(--color-oxford-blue) 100%);
+  border: 1px solid var(--border-gold);
+  border-bottom: 2px solid var(--color-brass-gold);
+  box-shadow: var(--shadow-book);
+  color: var(--text-white);
+  padding: 20px 28px 0 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.grand-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--color-brass-light), transparent);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.emblem-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.royal-crest {
+  font-size: 38px;
+  background: rgba(197, 160, 89, 0.15);
+  border: 1px solid var(--color-brass-gold);
+  border-radius: 50%;
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 10px rgba(197, 160, 89, 0.3);
+}
+
+.title-block .sub-title {
+  font-family: var(--font-serif-en);
+  font-size: 11px;
+  letter-spacing: 3.5px;
+  color: var(--color-brass-light);
+  display: block;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.title-block .main-title {
+  font-family: var(--font-serif-jp);
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #FFFDF9;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.badge-v2 {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  background: var(--color-sealing-wax);
+  color: #FFF;
+  padding: 2px 8px;
+  border-radius: 12px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.clock-display {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--color-brass-light);
+  background: rgba(0, 0, 0, 0.35);
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(197, 160, 89, 0.25);
+}
+
+.btn-classic-icon {
+  background: rgba(197, 160, 89, 0.15);
+  border: 1px solid var(--color-brass-gold);
+  color: var(--color-brass-light);
+  font-family: var(--font-serif-jp);
+  font-size: 13px;
+  padding: 7px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all var(--transition-fast);
+}
+
+.btn-classic-icon:hover {
+  background: var(--color-brass-gold);
+  color: var(--color-oxford-dark);
+  box-shadow: var(--shadow-gold);
+}
+
+/* =========================================================
+   📜 書架タブナビゲーション
+   ========================================================= */
+.archives-nav {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.archives-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-tab {
+  background: rgba(11, 19, 32, 0.6);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  padding: 12px 18px;
+  color: #D3CABA;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 160px;
+  position: relative;
+  transition: all var(--transition-fast);
+  text-align: left;
+}
+
+.nav-tab .tab-icon {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.nav-tab .tab-label {
+  font-family: var(--font-serif-jp);
+  font-size: 14px;
+  font-weight: 700;
+  color: #FAF5E8;
+  line-height: 1.2;
+}
+
+.nav-tab .tab-desc {
+  font-size: 11px;
+  color: #A09689;
+  margin-top: 3px;
+  white-space: nowrap;
+}
+
+.nav-tab:hover {
+  background: rgba(30, 58, 43, 0.8);
+  color: #FFF;
+  border-color: var(--color-brass-gold);
+}
+
+.nav-tab.active {
+  background: var(--bg-card);
+  color: var(--text-ink-heavy);
+  border-color: var(--color-brass-gold);
+  border-bottom: 1px solid var(--bg-card);
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.nav-tab.active .tab-label {
+  color: var(--color-oxford-blue);
+}
+
+.nav-tab.active .tab-desc {
+  color: var(--text-sepia);
+}
+
+.nav-tab.active::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--color-brass-gold);
+  border-radius: 8px 8px 0 0;
+}
+
+/* =========================================================
+   🏛️ READING HALL (閲覧室メインエリア)
+   ========================================================= */
+.reading-hall {
+  flex: 1;
+  background: var(--bg-card);
+  border: 1px solid var(--border-antique);
+  border-top: none;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  box-shadow: var(--shadow-book);
+  padding: 28px;
+  margin-bottom: 24px;
+  position: relative;
+  min-height: 680px;
+}
+
+.archive-room {
+  display: none;
+  animation: fadeInRoom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.archive-room.active {
+  display: block;
+}
+
+@keyframes fadeInRoom {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   📜 GRAND FOOTER
+   ========================================================= */
+.grand-footer {
+  text-align: center;
+  padding: 16px 20px 32px 20px;
+  color: var(--text-sepia);
+  font-size: 12px;
+}
+
+.grand-footer .copyright {
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--color-oxford-blue);
+}
+
+.grand-footer .disclaimer {
+  color: var(--text-muted);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   カスタムスクロールバー
+   ========================================================= */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-parchment);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-antique);
+  border-radius: 4px;
+  border: 1px solid var(--bg-parchment-aged);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brass-gold);
+}

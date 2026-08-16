@@ -1,0 +1,228 @@
+/* =========================================================
+   🎓 7. EXAM & RECITATION ROOM (試問・素読室 & 5大国家資格過去問室)
+   ========================================================= */
+
+.exam-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ヘッダーツールバー（アップロードボタン等） */
+.exam-top-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* モード切り替えタブ：5大過去問室 vs 条文素読・穴埋め暗記 */
+.exam-mode-switch {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-mode-tab {
+  background: var(--bg-parchment-light);
+  border: 1px solid var(--border-antique);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-family: var(--font-serif-jp);
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--text-sepia);
+  transition: all var(--transition-fast);
+}
+
+.btn-mode-tab.active {
+  background: var(--color-oxford-blue);
+  color: #FFF;
+  border-color: var(--color-oxford-dark);
+  box-shadow: var(--shadow-sm);
+}
+
+/* 過去問アップロード ドロップゾーン（モーダル内または折りたたみ内） */
+.exam-upload-card {
+  background: var(--bg-parchment-light);
+  border: 2px dashed var(--color-brass-gold);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: all var(--transition-fast);
+}
+
+.exam-upload-card:hover,
+.exam-upload-card.dragover {
+  background: #FFF;
+  border-color: var(--color-sealing-wax);
+  box-shadow: var(--shadow-gold);
+  transform: translateY(-2px);
+}
+
+/* 5大国家資格 書架セレクター */
+.qualification-shelf {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 10px;
+}
+
+.qual-binder-card {
+  background: #FFF;
+  border: 1px solid var(--border-antique);
+  border-top: 4px solid var(--color-brass-gold);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.qual-binder-card:hover,
+.qual-binder-card.active {
+  border-top-color: var(--color-sealing-wax);
+  transform: translateY(-2px);
+  background: var(--bg-parchment-light);
+  box-shadow: var(--shadow-md);
+}
+
+.qual-binder-card.active {
+  border-left: 1px solid var(--color-brass-gold);
+  border-right: 1px solid var(--color-brass-gold);
+  border-bottom: 1px solid var(--color-brass-gold);
+}
+
+.qual-icon {
+  font-size: 22px;
+  margin-bottom: 2px;
+}
+
+.qual-title {
+  font-weight: 700;
+  font-size: 13.5px;
+  color: var(--color-oxford-blue);
+}
+
+.qual-count {
+  font-size: 11px;
+  color: var(--text-sepia);
+  margin-top: 2px;
+}
+
+/* 問題演習エリア */
+.quiz-hall {
+  background: #FFF;
+  border: 1px solid var(--border-antique);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.quiz-meta-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-antique);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.quiz-qual-badge {
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--color-oxford-blue);
+  color: #FFF;
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+
+.quiz-question-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 18px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-ink-heavy);
+  margin-bottom: 20px;
+}
+
+.quiz-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.quiz-option-btn {
+  background: #FFF;
+  border: 1px solid var(--border-antique);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  text-align: left;
+  font-family: var(--font-serif-jp);
+  font-size: 14px;
+  line-height: 1.6;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.quiz-option-btn:hover {
+  background: var(--bg-parchment-light);
+  border-color: var(--color-brass-gold);
+}
+
+.quiz-option-btn.selected-correct {
+  background: #E8F5E9;
+  border-color: #4CAF50;
+  color: #1B5E20;
+}
+
+.quiz-option-btn.selected-wrong {
+  background: #FFEBEE;
+  border-color: #F44336;
+  color: #B71C1C;
+}
+
+.quiz-explanation-card {
+  margin-top: 20px;
+  padding: 20px;
+  background: var(--bg-parchment-light);
+  border: 1px solid var(--color-brass-gold);
+  border-radius: var(--radius-sm);
+  animation: fadeInPop 0.2s ease-out;
+}
+
+.explanation-title {
+  font-weight: 700;
+  color: var(--color-oxford-blue);
+  font-size: 15px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 穴埋めマスク（マスキングモード） */
+.cloze-word {
+  background: #24201D;
+  color: transparent;
+  padding: 1px 6px;
+  border-radius: 3px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s ease;
+  font-weight: bold;
+}
+
+.cloze-word.revealed {
+  background: rgba(197, 160, 89, 0.3);
+  color: var(--color-crimson);
+  border-bottom: 2px solid var(--color-crimson);
+}

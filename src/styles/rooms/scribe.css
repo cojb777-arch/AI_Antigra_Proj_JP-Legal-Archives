@@ -1,0 +1,95 @@
+/* =========================================================
+   ✍️ 6. SCRIBE ROOM (写字室: 契約書ドラフト & 法令適合診断)
+   ========================================================= */
+
+.scribe-layout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 960px) {
+  .scribe-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.scribe-params-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: var(--bg-parchment-light);
+  border: 1px solid var(--border-antique);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+}
+
+.contract-type-select {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.btn-contract-type {
+  background: #FFF;
+  border: 1px solid var(--border-antique);
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  color: var(--color-oxford-blue);
+  transition: all var(--transition-fast);
+}
+
+.btn-contract-type:hover,
+.btn-contract-type.active {
+  background: var(--color-oxford-blue);
+  color: #FFF;
+  border-color: var(--color-oxford-dark);
+}
+
+.scribe-doc-output {
+  background: #FFF;
+  border: 1px solid var(--border-antique);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-book);
+  display: flex;
+  flex-direction: column;
+  min-height: 600px;
+  overflow: hidden;
+}
+
+.scribe-toolbar {
+  background: var(--bg-parchment);
+  border-bottom: 1px solid var(--border-antique);
+  padding: 10px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.doc-paper-view {
+  flex: 1;
+  padding: 36px 44px;
+  overflow-y: auto;
+  font-family: var(--font-serif-jp);
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--text-ink-heavy);
+  background: #FFF;
+}
+
+.legal-compliance-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(142, 35, 35, 0.08);
+  border: 1px solid var(--color-sealing-wax);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-sealing-wax);
+}

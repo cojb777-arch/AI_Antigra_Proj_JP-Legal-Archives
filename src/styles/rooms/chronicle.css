@@ -1,0 +1,123 @@
+/* =========================================================
+   ⏳ 3. CHRONICLE ROOM (年代記室: 法改正・新旧対照Diff)
+   ========================================================= */
+
+.chronicle-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.chronicle-controls {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 12px;
+  align-items: flex-end;
+  background: var(--bg-parchment-light);
+  border: 1px solid var(--border-antique);
+  padding: 16px;
+  border-radius: var(--radius-sm);
+}
+
+@media (max-width: 900px) {
+  .chronicle-controls {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chronicle-diff-view {
+  background: #FFF;
+  border: 1px solid var(--border-antique);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  min-height: 480px;
+}
+
+.diff-header-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  border-bottom: 2px solid var(--border-antique);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.diff-col-title {
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.diff-col-title.old {
+  color: var(--diff-del-text);
+}
+
+.diff-col-title.new {
+  color: var(--diff-add-text);
+}
+
+.diff-body-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .diff-body-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+.diff-side-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.diff-inserted {
+  background-color: var(--diff-add-bg);
+  color: var(--diff-add-text);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 1px 3px;
+  border-radius: 2px;
+}
+
+.diff-deleted {
+  background-color: var(--diff-del-bg);
+  color: var(--diff-del-text);
+  text-decoration: line-through;
+  padding: 1px 3px;
+  border-radius: 2px;
+}
+
+.diff-timeline-history {
+  margin-top: 20px;
+  padding: 16px;
+  background: var(--bg-parchment-light);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-antique);
+}
+
+.timeline-item {
+  display: flex;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--border-antique);
+  font-size: 13px;
+}
+
+.timeline-date {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--color-oxford-blue);
+  min-width: 110px;
+}

@@ -1,0 +1,266 @@
+/* =========================================================
+   🗺️ 2. KNOWLEDGE MAP ROOM (地図・目録室: 法令階層構造・全101法令目録)
+   ========================================================= */
+
+.map-layout {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 24px;
+  min-height: 650px;
+}
+
+@media (max-width: 1080px) {
+  .map-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 法令階層構造ピラミッド（Hierarchy Banner） */
+.law-hierarchy-pyramid {
+  background: linear-gradient(135deg, var(--color-oxford-dark) 0%, var(--color-oxford-blue) 100%);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  color: #FFF;
+  box-shadow: var(--shadow-sm);
+}
+
+.hierarchy-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  border-bottom: 1px dashed rgba(197, 160, 89, 0.4);
+  padding-bottom: 8px;
+}
+
+.hierarchy-title {
+  font-family: var(--font-serif-jp);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-brass-light);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hierarchy-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .hierarchy-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hierarchy-tier-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  border-radius: var(--radius-sm);
+  padding: 8px 6px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.hierarchy-tier-card:hover,
+.hierarchy-tier-card.active {
+  background: rgba(197, 160, 89, 0.25);
+  border-color: var(--color-brass-light);
+  transform: translateY(-2px);
+}
+
+.hierarchy-tier-card.active {
+  border-top: 3px solid var(--color-brass-gold);
+}
+
+.tier-badge {
+  font-size: 10px;
+  font-family: var(--font-mono);
+  color: var(--color-brass-light);
+  font-weight: 700;
+}
+
+.tier-name {
+  font-family: var(--font-serif-jp);
+  font-size: 13px;
+  font-weight: 900;
+  color: #FFF;
+}
+
+.tier-desc {
+  font-size: 10px;
+  color: #D6CCA8;
+  line-height: 1.2;
+}
+
+/* 左側サイドバー */
+.map-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.law-search-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* 101法令 カテゴリフィルタータブ */
+.master-law-category-tabs {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.btn-cat-tab {
+  background: #FFF;
+  border: 1px solid var(--border-antique);
+  font-family: var(--font-serif-jp);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: var(--text-sepia);
+  transition: all var(--transition-fast);
+}
+
+.btn-cat-tab:hover,
+.btn-cat-tab.active {
+  background: var(--color-oxford-blue);
+  color: #FFF;
+  border-color: var(--color-oxford-dark);
+}
+
+/* 101法令 スクロール書架グリッド */
+.master-laws-scroll-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  max-height: 380px;
+  overflow-y: auto;
+  padding-right: 4px;
+  margin-top: 6px;
+}
+
+.btn-master-law {
+  background: #FFF;
+  border: 1px solid var(--border-antique);
+  border-left: 3px solid var(--color-brass-gold);
+  padding: 6px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 11.5px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  color: var(--color-oxford-blue);
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn-master-law .law-no {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-brass-dark);
+  font-weight: bold;
+  min-width: 20px;
+}
+
+.btn-master-law:hover,
+.btn-master-law.active {
+  background: var(--bg-parchment-light);
+  border-color: var(--color-brass-gold);
+  border-left-color: var(--color-sealing-wax);
+  transform: translateY(-1px);
+}
+
+.btn-master-law.active {
+  background: var(--bg-parchment-aged);
+  font-weight: bold;
+}
+
+/* 目次コンテナ */
+.law-toc-container {
+  flex: 1;
+  background: #FFF;
+  border: 1px solid var(--border-antique);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  max-height: 380px;
+  overflow-y: auto;
+}
+
+.toc-item {
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--text-ink-body);
+  transition: all var(--transition-fast);
+  display: flex;
+  justify-content: space-between;
+}
+
+.toc-item:hover {
+  background: var(--bg-parchment-light);
+  color: var(--color-oxford-blue);
+}
+
+.toc-item.chapter {
+  font-weight: 700;
+  color: var(--color-oxford-dark);
+  background: var(--bg-parchment-aged);
+  margin-top: 6px;
+}
+
+/* 右側：条文本文ビュー */
+.map-content-view {
+  background: #FFF;
+  border: 1px solid var(--border-antique);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  overflow-y: auto;
+  max-height: 720px;
+  box-shadow: var(--shadow-sm);
+}
+
+.law-meta-banner {
+  background: var(--bg-parchment-light);
+  border: 1px solid var(--border-antique);
+  border-left: 4px solid var(--color-oxford-blue);
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.law-meta-title {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--color-oxford-blue);
+}
+
+.law-meta-num {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-sepia);
+  margin-top: 2px;
+}

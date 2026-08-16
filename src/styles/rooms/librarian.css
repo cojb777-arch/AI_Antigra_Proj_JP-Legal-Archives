@@ -1,0 +1,239 @@
+/* =========================================================
+   📖 1. LIBRARIAN ROOM (第一閲覧室: 司書対話)
+   ========================================================= */
+
+.librarian-layout {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 960px) {
+  .librarian-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 左側：司書の肖像・クイック相談トピック・法令クイック検索 */
+.librarian-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.librarian-avatar-card {
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(180deg, var(--bg-parchment-light) 0%, var(--bg-parchment) 100%);
+  border: 1px solid var(--border-antique);
+  border-radius: var(--radius-md);
+}
+
+.librarian-portrait {
+  width: 72px;
+  height: 72px;
+  background: var(--color-oxford-dark);
+  border: 2px solid var(--color-brass-gold);
+  border-radius: 50%;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.librarian-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-oxford-blue);
+}
+
+.librarian-title {
+  font-size: 12px;
+  color: var(--color-brass-dark);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.quick-topics {
+  margin-top: 14px;
+  text-align: left;
+}
+
+.quick-topics-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text-sepia);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.topic-pills {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.topic-pill {
+  background: #FFF;
+  border: 1px solid var(--border-antique);
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 12.5px;
+  color: var(--text-ink-body);
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.topic-pill:hover {
+  background: var(--color-oxford-blue);
+  color: #FFF;
+  border-color: var(--color-oxford-blue);
+  transform: translateX(3px);
+}
+
+/* 右側：対話ログ＆条文引き当てパネル */
+.librarian-main {
+  display: flex;
+  flex-direction: column;
+  height: 620px;
+  background: #FFF;
+  border: 1px solid var(--border-antique);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.chat-history {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: radial-gradient(circle at 50% 50%, #FAF8F2 0%, #F5EFE3 100%);
+}
+
+.chat-msg {
+  display: flex;
+  gap: 12px;
+  max-width: 90%;
+  animation: fadeInMsg 0.25s ease-out;
+}
+
+.chat-msg.user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.chat-msg.librarian {
+  align-self: flex-start;
+}
+
+.chat-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--color-oxford-blue);
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  border: 1px solid var(--color-brass-gold);
+}
+
+.chat-msg.user .chat-avatar {
+  background: var(--color-british-green);
+}
+
+.chat-bubble {
+  padding: 14px 18px;
+  border-radius: 8px;
+  font-size: 14.5px;
+  line-height: 1.7;
+  position: relative;
+}
+
+.chat-msg.user .chat-bubble {
+  background: var(--color-oxford-blue);
+  color: #FFF;
+  border: 1px solid var(--color-oxford-dark);
+}
+
+.chat-msg.librarian .chat-bubble {
+  background: #FFF;
+  color: var(--text-ink-body);
+  border: 1px solid var(--border-antique);
+  box-shadow: var(--shadow-sm);
+}
+
+/* 引用条文ボックス */
+.cited-laws-container {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border-antique);
+}
+
+.cited-law-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-parchment-light);
+  border: 1px solid var(--color-brass-gold);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-oxford-blue);
+  cursor: pointer;
+  margin: 4px 4px 4px 0;
+  transition: all var(--transition-fast);
+}
+
+.cited-law-badge:hover {
+  background: var(--color-brass-gold);
+  color: var(--color-oxford-dark);
+}
+
+/* チャット入力エリア */
+.chat-input-bar {
+  padding: 14px 18px;
+  background: #FFF;
+  border-top: 1px solid var(--border-antique);
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.chat-textarea {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid var(--border-antique);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-serif-jp);
+  font-size: 14px;
+  resize: none;
+  height: 48px;
+  max-height: 120px;
+  outline: none;
+  line-height: 1.5;
+}
+
+.chat-textarea:focus {
+  border-color: var(--color-brass-gold);
+  box-shadow: 0 0 0 2px rgba(197, 160, 89, 0.2);
+}
+
+@keyframes fadeInMsg {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}

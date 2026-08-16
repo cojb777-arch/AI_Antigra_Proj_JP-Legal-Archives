@@ -1,0 +1,132 @@
+/* =========================================================
+   📋 4. SITUATIONAL ROOM (実務相談窓口: シチュエーション逆引き)
+   ========================================================= */
+
+.situational-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.situation-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.situation-card {
+  background: #FFF;
+  border: 1px solid var(--border-antique);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.situation-card:hover,
+.situation-card.active {
+  border-color: var(--color-brass-gold);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+  background: var(--bg-parchment-light);
+}
+
+.situation-card.active::before {
+  content: "✓";
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-weight: 900;
+  color: var(--color-brass-dark);
+}
+
+.situation-icon {
+  font-size: 28px;
+}
+
+.situation-name {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--color-oxford-blue);
+}
+
+.situation-brief {
+  font-size: 12px;
+  color: var(--text-sepia);
+  line-height: 1.5;
+}
+
+.situation-detail-panel {
+  background: #FFF;
+  border: 1px solid var(--border-antique);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.situation-banner {
+  border-bottom: 2px solid var(--border-antique);
+  padding-bottom: 14px;
+  margin-bottom: 20px;
+}
+
+.roadmap-step-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.roadmap-step-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+}
+
+.roadmap-step-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.step-badge {
+  background: var(--color-oxford-blue);
+  color: #FFF;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.step-title {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--color-oxford-blue);
+}
+
+.step-checklist {
+  list-style: none;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.step-check-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  cursor: pointer;
+}
+
+.step-check-label input[type="checkbox"] {
+  accent-color: var(--color-british-green);
+  width: 16px;
+  height: 16px;
+}

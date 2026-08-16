@@ -1,0 +1,69 @@
+/* =========================================================
+   🏛️ THE LEGAL ARCHIVES - DESIGN SYSTEM TOKENS
+   大英博物館・大英図書館 クラシックスタイル
+   ========================================================= */
+
+:root {
+  /* クラシック・カラーパレット */
+  --bg-parchment-light: #FAF7EE;
+  --bg-parchment: #F4EFE0;
+  --bg-parchment-aged: #EAE2CB;
+  --bg-card: #FDFBF7;
+  --bg-input: #FFFFFF;
+
+  /* アクセント＆主要カラー */
+  --color-oxford-blue: #142238;
+  --color-oxford-dark: #0B1320;
+  --color-british-green: #1C3328;
+  --color-brass-gold: #C5A059;
+  --color-brass-light: #E4C88A;
+  --color-brass-dark: #8F6F30;
+  --color-sealing-wax: #8E2323;
+  --color-sealing-wax-hover: #731A1A;
+  --color-crimson: #A32D2D;
+
+  /* テキストカラー */
+  --text-ink-heavy: #181514;
+  --text-ink-body: #2C2623;
+  --text-sepia: #5D544C;
+  --text-muted: #82786F;
+  --text-gold: #9B7936;
+  --text-white: #FAF7EE;
+
+  /* 状態・タグカラー */
+  --badge-bg-law: #E6EBF5;
+  --badge-text-law: #173260;
+  --badge-bg-order: #E6F3EB;
+  --badge-text-order: #1B5E34;
+  --badge-bg-rule: #F8EFE4;
+  --badge-text-rule: #8C541D;
+
+  /* 差分（Diff）カラー */
+  --diff-add-bg: #E3F8E9;
+  --diff-add-text: #13602A;
+  --diff-del-bg: #FDE8E8;
+  --diff-del-text: #961E1E;
+
+  /* ボーダー＆シャドウ */
+  --border-antique: #D6CCA8;
+  --border-light: #E8E0C9;
+  --border-dark: #3F352A;
+  --border-gold: rgba(197, 160, 89, 0.4);
+
+  --shadow-sm: 0 2px 6px rgba(24, 21, 20, 0.06);
+  --shadow-md: 0 4px 16px rgba(24, 21, 20, 0.09);
+  --shadow-book: 0 10px 30px rgba(11, 19, 32, 0.15), 0 2px 8px rgba(11, 19, 32, 0.08);
+  --shadow-gold: 0 0 15px rgba(197, 160, 89, 0.3);
+
+  /* タイポグラフィ */
+  --font-serif-en: 'Cinzel', 'Playfair Display', serif;
+  --font-serif-jp: 'Noto Serif JP', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+  --font-mono: 'JetBrains Mono', 'Courier Prime', monospace;
+
+  /* トランジション */
+  --transition-fast: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}

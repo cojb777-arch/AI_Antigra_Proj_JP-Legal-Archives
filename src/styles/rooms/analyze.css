@@ -1,0 +1,159 @@
+/* =========================================================
+   🔍 5. ANALYZE ROOM (約定解析室: 契約書PDF解析 & DB蓄積)
+   ========================================================= */
+
+.analyze-layout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 960px) {
+  .analyze-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* アップロード＆過去の蓄積DBパネル */
+.analyze-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ドラッグ＆ドロップ領域 */
+.pdf-drop-zone {
+  background: var(--bg-card);
+  border: 2px dashed var(--color-brass-gold);
+  border-radius: var(--radius-md);
+  padding: 30px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.pdf-drop-zone:hover,
+.pdf-drop-zone.dragover {
+  background: var(--bg-parchment-light);
+  border-color: var(--color-sealing-wax);
+  box-shadow: var(--shadow-gold);
+  transform: translateY(-2px);
+}
+
+.drop-icon {
+  font-size: 40px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.drop-title {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--color-oxford-blue);
+}
+
+.drop-sub {
+  font-size: 12px;
+  color: var(--text-sepia);
+  margin-top: 4px;
+}
+
+/* 蓄積契約書データベース一覧 */
+.contract-db-shelf {
+  background: #FFF;
+  border: 1px solid var(--border-antique);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.contract-db-item {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contract-db-item:hover,
+.contract-db-item.active {
+  background: var(--bg-parchment-light);
+  border-left: 3px solid var(--color-brass-gold);
+}
+
+.contract-db-title {
+  font-weight: 700;
+  font-size: 13.5px;
+  color: var(--color-oxford-blue);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.risk-tag {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.risk-tag.low { background: #E8F5E9; color: #2E7D32; }
+.risk-tag.medium { background: #FFF8E1; color: #F57F17; }
+.risk-tag.high { background: #FFEBEE; color: #C62828; }
+
+/* 右側：解析レポート表示パネル */
+.analyze-report-view {
+  background: #FFF;
+  border: 1px solid var(--border-antique);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-book);
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.report-toolbar {
+  background: var(--bg-parchment);
+  border-bottom: 1px solid var(--border-antique);
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.report-paper-body {
+  flex: 1;
+  padding: 32px 38px;
+  overflow-y: auto;
+  font-family: var(--font-serif-jp);
+  line-height: 1.9;
+  color: var(--text-ink-heavy);
+}
+
+.report-paper-body h1 {
+  font-size: 22px;
+  color: var(--color-oxford-blue);
+  border-bottom: 2px solid var(--color-brass-gold);
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+.report-paper-body h2 {
+  font-size: 17px;
+  color: var(--color-oxford-blue);
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-left: 4px solid var(--color-brass-gold);
+  padding-left: 8px;
+}
+
+.report-paper-body ul {
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
